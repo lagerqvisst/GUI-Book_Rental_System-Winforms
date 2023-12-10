@@ -25,12 +25,12 @@ namespace ServiceLayer
             Bok bok10 = new Bok(978073933, "The Da Vinci Code", "Dan Brown", 454, "Thriller"); böcker.Add(bok10);
 
             //Skapa bokmaskiner
-            Bokmaskin maskin1 = new Bokmaskin(); bokmaskiner.Add(maskin1);
-            Bokmaskin maskin2 = new Bokmaskin(); bokmaskiner.Add(maskin2); 
-            Bokmaskin maskin3 = new Bokmaskin(); bokmaskiner.Add(maskin3);
-            Bokmaskin maskin4 = new Bokmaskin(); bokmaskiner.Add(maskin4);
-            Bokmaskin maskin5 = new Bokmaskin(); bokmaskiner.Add(maskin5);
-            Bokmaskin maskin6 = new Bokmaskin(); bokmaskiner.Add(maskin6);
+            Bokmaskin maskin1 = new Bokmaskin("Ingång - södra"); bokmaskiner.Add(maskin1);
+            Bokmaskin maskin2 = new Bokmaskin("Perrong - östra"); bokmaskiner.Add(maskin2); 
+            Bokmaskin maskin3 = new Bokmaskin("Ingång - norra"); bokmaskiner.Add(maskin3);
+            Bokmaskin maskin4 = new Bokmaskin("Utång - södra"); bokmaskiner.Add(maskin4);
+            Bokmaskin maskin5 = new Bokmaskin("Servicedesk - västra"); bokmaskiner.Add(maskin5);
+            Bokmaskin maskin6 = new Bokmaskin("Ingång - norra"); bokmaskiner.Add(maskin6);
 
             //Fyll bokmaskinerna med böcker (alla maskiner får samma böcker)
             foreach(Bokmaskin maskiner in bokmaskiner)
@@ -65,11 +65,11 @@ namespace ServiceLayer
             resenärer.Add(new Resenär("Oliver", "Persson", "oliver.persson@example.com"));
 
             // Skapa och lägg till 5 maskinansvariga
-            Maskinansvarig maskinansvarig1 = new Maskinansvarig("Bob", "Pettersson", "david.pettersson@example.com"); maskinansvariga.Add(maskinansvarig1);
-            Maskinansvarig maskinansvarig2 = new Maskinansvarig("Roger", "Björk", "frida.bjork@example.com"); maskinansvariga.Add(maskinansvarig2);    
-            Maskinansvarig maskinansvarig3 = new Maskinansvarig("Tjorven", "Eklund", "gustav.eklund@example.com"); maskinansvariga.Add(maskinansvarig3);
-            Maskinansvarig maskinansvarig4 = new Maskinansvarig("Roffe", "Holm", "anna.holm@example.com"); maskinansvariga.Add(maskinansvarig4);
-            Maskinansvarig maskinansvarig5 = new Maskinansvarig("Maestro", "Sjöberg", "oscar.sjoberg@example.com");maskinansvariga.Add(maskinansvarig5);
+            Maskinansvarig maskinansvarig1 = new Maskinansvarig("Bob", "Pettersson", "bob.pettersson@example.com"); maskinansvariga.Add(maskinansvarig1);
+            Maskinansvarig maskinansvarig2 = new Maskinansvarig("Roger", "Björk", "roger.bjork@example.com"); maskinansvariga.Add(maskinansvarig2);    
+            Maskinansvarig maskinansvarig3 = new Maskinansvarig("Tjorven", "Eklund", "tjorven.eklund@example.com"); maskinansvariga.Add(maskinansvarig3);
+            Maskinansvarig maskinansvarig4 = new Maskinansvarig("Roffe", "Holm", "roffe.holm@example.com"); maskinansvariga.Add(maskinansvarig4);
+            Maskinansvarig maskinansvarig5 = new Maskinansvarig("Maestro", "Sjöberg", "maestro.sjoberg@example.com");maskinansvariga.Add(maskinansvarig5);
 
             //Fördelar ut bokmaskiner som specifika maskinansvariga är ansvariga för. 
             maskinansvarig1.maskiner.Add(maskin1);
@@ -77,6 +77,14 @@ namespace ServiceLayer
             maskinansvarig3.maskiner.Add(maskin3);
             maskinansvarig4.maskiner.Add(maskin4);
             maskinansvarig5.maskiner.Add(maskin5);
+
+            //TEST
+            BokLån lån1 = new BokLån(bok1);
+            BokLån lån2 = new BokLån(bok2);
+            BokLån lån3 = new BokLån(bok3);
+            BokLån lån4 = new BokLån(bok4);
+            lån1.utlåningsDatum = new DateTime(2023, 11, 15); 
+            
 
         }
 

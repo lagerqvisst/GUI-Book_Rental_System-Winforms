@@ -8,8 +8,8 @@ namespace Models
 {
     public class Tågstation
     {
-        public string stad;
-        public List<Bokmaskin> Bokmaskiner; 
+        public string stad { get; set; }
+        public List<Bokmaskin> Bokmaskiner { get; set; }
         public Tågstation(string stad)
         { 
             this.stad = stad;   
