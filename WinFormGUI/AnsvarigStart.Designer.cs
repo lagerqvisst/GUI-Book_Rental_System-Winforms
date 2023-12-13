@@ -31,6 +31,7 @@
             dataGridViewMaskinAnsvariga = new DataGridView();
             btnLoggainAnsvarig = new Button();
             label1 = new Label();
+            btnTillbakaFrånMaskinStart = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewMaskinAnsvariga).BeginInit();
             SuspendLayout();
             // 
@@ -65,11 +66,24 @@
             label1.TabIndex = 2;
             label1.Text = "Välj maskinansvarig";
             // 
+            // btnTillbakaFrånMaskinStart
+            // 
+            btnTillbakaFrånMaskinStart.BackColor = SystemColors.ActiveCaptionText;
+            btnTillbakaFrånMaskinStart.ForeColor = SystemColors.ControlLightLight;
+            btnTillbakaFrånMaskinStart.Location = new Point(63, 373);
+            btnTillbakaFrånMaskinStart.Name = "btnTillbakaFrånMaskinStart";
+            btnTillbakaFrånMaskinStart.Size = new Size(75, 23);
+            btnTillbakaFrånMaskinStart.TabIndex = 3;
+            btnTillbakaFrånMaskinStart.Text = "Tillbaka";
+            btnTillbakaFrånMaskinStart.UseVisualStyleBackColor = false;
+            btnTillbakaFrånMaskinStart.Click += btnTillbakaFrånMaskinStart_Click;
+            // 
             // AnsvarigStart
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnTillbakaFrånMaskinStart);
             Controls.Add(label1);
             Controls.Add(btnLoggainAnsvarig);
             Controls.Add(dataGridViewMaskinAnsvariga);
@@ -85,5 +99,6 @@
         private DataGridView dataGridViewMaskinAnsvariga;
         private Button btnLoggainAnsvarig;
         private Label label1;
+        private Button btnTillbakaFrånMaskinStart;
     }
 }

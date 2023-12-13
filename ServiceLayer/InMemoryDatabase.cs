@@ -79,11 +79,7 @@ namespace ServiceLayer
             maskinansvarig5.maskiner.Add(maskin5);
 
             //TEST
-            BokLån lån1 = new BokLån(bok1);
-            BokLån lån2 = new BokLån(bok2);
-            BokLån lån3 = new BokLån(bok3);
-            BokLån lån4 = new BokLån(bok4);
-            lån1.utlåningsDatum = new DateTime(2023, 11, 15); 
+
             
 
         }

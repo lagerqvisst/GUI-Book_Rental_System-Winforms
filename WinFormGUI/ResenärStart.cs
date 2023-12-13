@@ -49,8 +49,13 @@ namespace WinFormGUI
                 ResenärLån resenärSession = new ResenärLån(valdResenär, servicelayer);
                 resenärSession.Show();
             }
+            else
+            {
+                MessageBox.Show("Vänligen välj en användare innan du fortsätter.", "Fel", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
+
 
         private void btnTillbakaFrånResenärStart_Click(object sender, EventArgs e)
         {

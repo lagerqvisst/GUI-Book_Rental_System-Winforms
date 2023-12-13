@@ -31,7 +31,6 @@
             dataGridViewResenär = new DataGridView();
             btnResenärLoggain = new Button();
             label1 = new Label();
-            btnRefreshResenärData = new Button();
             btnTillbakaFrånResenärStart = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewResenär).BeginInit();
             SuspendLayout();
@@ -67,16 +66,6 @@
             label1.TabIndex = 2;
             label1.Text = "Välj användare";
             // 
-            // btnRefreshResenärData
-            // 
-            btnRefreshResenärData.Location = new Point(346, 243);
-            btnRefreshResenärData.Name = "btnRefreshResenärData";
-            btnRefreshResenärData.Size = new Size(131, 23);
-            btnRefreshResenärData.TabIndex = 3;
-            btnRefreshResenärData.Text = "Uppdatera Data";
-            btnRefreshResenärData.UseVisualStyleBackColor = true;
-            btnRefreshResenärData.Click += btnRefreshResenärData_Click;
-            // 
             // btnTillbakaFrånResenärStart
             // 
             btnTillbakaFrånResenärStart.BackColor = SystemColors.InactiveCaptionText;
@@ -95,7 +84,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(549, 361);
             Controls.Add(btnTillbakaFrånResenärStart);
-            Controls.Add(btnRefreshResenärData);
             Controls.Add(label1);
             Controls.Add(btnResenärLoggain);
             Controls.Add(dataGridViewResenär);
@@ -111,7 +99,6 @@
         private DataGridView dataGridViewResenär;
         private Button btnResenärLoggain;
         private Label label1;
-        private Button btnRefreshResenärData;
         private Button btnTillbakaFrånResenärStart;
     }
 }

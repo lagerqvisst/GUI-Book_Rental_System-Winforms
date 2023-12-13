@@ -19,7 +19,7 @@ namespace WinFormGUI
         private Tågstation valdTågstation;
         private Bokmaskin valdBokmaskin;
         private Bok valdBok;
-        private BokLån lånadBok; 
+        private BokLån lånadBok;
         public ResenärLån(Resenär valdResenär, Servicelayer servicelayer)
         {
             InitializeComponent();
@@ -49,10 +49,6 @@ namespace WinFormGUI
             labelLånadeBöcker.Text = $"Lånade böcker för: {valdResenär.förnamn} {valdResenär.efternamn}";
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            RefreshDataGridviewTågstationer();
-        }
 
         private void dataGridViewTågstationer_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -76,7 +72,14 @@ namespace WinFormGUI
 
         private void btnValdStation_Click(object sender, EventArgs e)
         {
-            RefreshDataGridviewBokmaskiner();
+            if(valdTågstation != null) 
+            {
+                RefreshDataGridviewBokmaskiner();
+            }
+            else 
+            {
+                MessageBox.Show("Vänligen välj en tågstation innan du fortsätter.", "Fel", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void RefreshDataGridviewBöcker()
         {
@@ -86,16 +89,32 @@ namespace WinFormGUI
 
         private void btnValdMaskin_Click(object sender, EventArgs e)
         {
-            RefreshDataGridviewBöcker();
+            if(valdBokmaskin != null) 
+            {
+                RefreshDataGridviewBöcker();
+            }
+            else
+            {
+                MessageBox.Show("Vänligen välj en maskin innan du fortsätter.", "Fel", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
         }
 
         private void btnValdBok_Click(object sender, EventArgs e)
         {
-            servicelayer.LånaBok(valdBok, valdResenär, valdBokmaskin);
-            RefreshDataGridviewBöcker();
-            RefreshDataGridviewLånadeböcker();
-            RefreshBokSaldo();
-            valdBok = null;
+            if(valdBok != null) 
+            {
+                servicelayer.LånaBok(valdBok, valdResenär, valdBokmaskin);
+                RefreshDataGridviewBöcker();
+                RefreshDataGridviewLånadeböcker();
+                RefreshBokSaldo();
+                valdBok = null;
+            }
+            else
+            {
+                MessageBox.Show("Vänligen välj en bok innan du fortsätter.", "Fel", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
         private void RefreshBokSaldo()
         {
@@ -104,16 +123,29 @@ namespace WinFormGUI
 
         private void btnLämnaTillbakaBok_Click(object sender, EventArgs e)
         {
-            servicelayer.LämnaTillbakaBok(valdBok, valdResenär, valdBokmaskin, lånadBok);
-            RefreshDataGridviewBöcker();
-            RefreshDataGridviewLånadeböcker();
-            RefreshBokSaldo();
+            if(lånadBok != null) 
+            {
+                servicelayer.LämnaTillbakaBok(valdBok, valdResenär, valdBokmaskin, lånadBok);
+                RefreshDataGridviewBöcker();
+                RefreshDataGridviewLånadeböcker();
+                RefreshBokSaldo();
+            }
+            else 
+            {
+                MessageBox.Show("Vänligen välj en lånad bok innan du fortsätter.", "Fel", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void dataGridViewLånadeBöcker_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             lånadBok = dataGridViewLånadeBöcker.SelectedRows[0].DataBoundItem as BokLån;
             valdBok = lånadBok.bok;
+        }
+
+        private void btnLoggautResenär_Click(object sender, EventArgs e)
+        {
+            this.Close();   
         }
     }
 }

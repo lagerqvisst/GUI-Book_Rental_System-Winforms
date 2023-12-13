@@ -31,10 +31,8 @@
             label1 = new Label();
             dataGridViewLånadeBöcker = new DataGridView();
             labelLånadeBöcker = new Label();
-            btnRefreshLånadeböcker = new Button();
             dataGridViewTågstationer = new DataGridView();
             label2 = new Label();
-            button1 = new Button();
             dataGridViewBöcker = new DataGridView();
             lbLånadeböcker = new Label();
             btnValdBok = new Button();
@@ -43,6 +41,7 @@
             btnValdStation = new Button();
             btnValdMaskin = new Button();
             btnLämnaTillbakaBok = new Button();
+            btnLoggautResenär = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewLånadeBöcker).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewTågstationer).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewBöcker).BeginInit();
@@ -76,16 +75,6 @@
             labelLånadeBöcker.TabIndex = 3;
             labelLånadeBöcker.Text = "Lånade böcker för: ";
             // 
-            // btnRefreshLånadeböcker
-            // 
-            btnRefreshLånadeböcker.Location = new Point(383, 201);
-            btnRefreshLånadeböcker.Name = "btnRefreshLånadeböcker";
-            btnRefreshLånadeböcker.Size = new Size(126, 27);
-            btnRefreshLånadeböcker.TabIndex = 4;
-            btnRefreshLånadeböcker.Text = "Uppdatera låndata";
-            btnRefreshLånadeböcker.UseVisualStyleBackColor = true;
-            btnRefreshLånadeböcker.Click += btnRefreshLånadeböcker_Click;
-            // 
             // dataGridViewTågstationer
             // 
             dataGridViewTågstationer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -105,16 +94,6 @@
             label2.Size = new Size(81, 15);
             label2.TabIndex = 6;
             label2.Text = "Välj tågstation";
-            // 
-            // button1
-            // 
-            button1.Location = new Point(10, 520);
-            button1.Name = "button1";
-            button1.Size = new Size(117, 23);
-            button1.TabIndex = 7;
-            button1.Text = "Uppdatera tågdata";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
             // 
             // dataGridViewBöcker
             // 
@@ -197,11 +176,24 @@
             btnLämnaTillbakaBok.UseVisualStyleBackColor = false;
             btnLämnaTillbakaBok.Click += btnLämnaTillbakaBok_Click;
             // 
+            // btnLoggautResenär
+            // 
+            btnLoggautResenär.BackColor = SystemColors.ControlText;
+            btnLoggautResenär.ForeColor = SystemColors.ControlLightLight;
+            btnLoggautResenär.Location = new Point(850, 40);
+            btnLoggautResenär.Name = "btnLoggautResenär";
+            btnLoggautResenär.Size = new Size(75, 23);
+            btnLoggautResenär.TabIndex = 17;
+            btnLoggautResenär.Text = "Logga ut";
+            btnLoggautResenär.UseVisualStyleBackColor = false;
+            btnLoggautResenär.Click += btnLoggautResenär_Click;
+            // 
             // ResenärLån
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(948, 603);
+            Controls.Add(btnLoggautResenär);
             Controls.Add(btnLämnaTillbakaBok);
             Controls.Add(btnValdMaskin);
             Controls.Add(btnValdStation);
@@ -210,10 +202,8 @@
             Controls.Add(btnValdBok);
             Controls.Add(lbLånadeböcker);
             Controls.Add(dataGridViewBöcker);
-            Controls.Add(button1);
             Controls.Add(label2);
             Controls.Add(dataGridViewTågstationer);
-            Controls.Add(btnRefreshLånadeböcker);
             Controls.Add(labelLånadeBöcker);
             Controls.Add(dataGridViewLånadeBöcker);
             Controls.Add(label1);
@@ -232,10 +222,8 @@
         private Label label1;
         private DataGridView dataGridViewLånadeBöcker;
         private Label labelLånadeBöcker;
-        private Button btnRefreshLånadeböcker;
         private DataGridView dataGridViewTågstationer;
         private Label label2;
-        private Button button1;
         private DataGridView dataGridViewBöcker;
         private Label lbLånadeböcker;
         private Button btnValdBok;
@@ -244,5 +232,6 @@
         private Button btnValdStation;
         private Button btnValdMaskin;
         private Button btnLämnaTillbakaBok;
+        private Button btnLoggautResenär;
     }
 }

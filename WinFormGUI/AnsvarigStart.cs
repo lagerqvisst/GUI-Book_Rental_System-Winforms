@@ -36,11 +36,20 @@ namespace WinFormGUI
 
         private void btnLoggainAnsvarig_Click(object sender, EventArgs e)
         {
-            if(valdAnsvarig != null) 
+            if (valdAnsvarig != null)
             {
                 AnsvarigHantera ansvarighantera = new AnsvarigHantera(servicelayer, valdAnsvarig);
-                ansvarighantera.Show(); 
+                ansvarighantera.Show();
             }
+            else 
+            {
+                MessageBox.Show("Vänligen välj en maskinansvarig innan du fortsätter.", "Fel", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnTillbakaFrånMaskinStart_Click(object sender, EventArgs e)
+        {
+            this.Close();   
         }
     }
 }

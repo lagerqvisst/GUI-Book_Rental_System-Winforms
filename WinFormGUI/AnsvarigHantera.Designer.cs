@@ -40,7 +40,9 @@
             label3 = new Label();
             btnLäggTillBok = new Button();
             dataGridViewLånadeBöcker = new DataGridView();
-            label4 = new Label();
+            lbLånadeBöckerFrånMaskin = new Label();
+            btnLoggautMaskin = new Button();
+            label5 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridViewMaskiner).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewBöckerMaskin).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewBokLager).BeginInit();
@@ -161,24 +163,46 @@
             dataGridViewLånadeBöcker.Location = new Point(26, 327);
             dataGridViewLånadeBöcker.Name = "dataGridViewLånadeBöcker";
             dataGridViewLånadeBöcker.RowTemplate.Height = 25;
-            dataGridViewLånadeBöcker.Size = new Size(240, 150);
+            dataGridViewLånadeBöcker.Size = new Size(261, 150);
             dataGridViewLånadeBöcker.TabIndex = 11;
             // 
-            // label4
+            // lbLånadeBöckerFrånMaskin
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(26, 309);
-            label4.Name = "label4";
-            label4.Size = new Size(152, 15);
-            label4.TabIndex = 12;
-            label4.Text = "Lånade böcker från maskin:";
+            lbLånadeBöckerFrånMaskin.AutoSize = true;
+            lbLånadeBöckerFrånMaskin.Location = new Point(26, 309);
+            lbLånadeBöckerFrånMaskin.Name = "lbLånadeBöckerFrånMaskin";
+            lbLånadeBöckerFrånMaskin.Size = new Size(152, 15);
+            lbLånadeBöckerFrånMaskin.TabIndex = 12;
+            lbLånadeBöckerFrånMaskin.Text = "Lånade böcker från maskin:";
+            // 
+            // btnLoggautMaskin
+            // 
+            btnLoggautMaskin.BackColor = SystemColors.ActiveCaptionText;
+            btnLoggautMaskin.ForeColor = SystemColors.ControlLightLight;
+            btnLoggautMaskin.Location = new Point(26, 551);
+            btnLoggautMaskin.Name = "btnLoggautMaskin";
+            btnLoggautMaskin.Size = new Size(75, 23);
+            btnLoggautMaskin.TabIndex = 13;
+            btnLoggautMaskin.Text = "Logga ut";
+            btnLoggautMaskin.UseVisualStyleBackColor = false;
+            btnLoggautMaskin.Click += btnLoggautMaskin_Click;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(231, 309);
+            label5.Name = "label5";
+            label5.Size = new Size(0, 15);
+            label5.TabIndex = 14;
             // 
             // AnsvarigHantera
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(931, 602);
-            Controls.Add(label4);
+            Controls.Add(label5);
+            Controls.Add(btnLoggautMaskin);
+            Controls.Add(lbLånadeBöckerFrånMaskin);
             Controls.Add(dataGridViewLånadeBöcker);
             Controls.Add(btnLäggTillBok);
             Controls.Add(label3);
@@ -215,6 +239,8 @@
         private Label label3;
         private Button btnLäggTillBok;
         private DataGridView dataGridViewLånadeBöcker;
-        private Label label4;
+        private Label lbLånadeBöckerFrånMaskin;
+        private Button btnLoggautMaskin;
+        private Label label5;
     }
 }

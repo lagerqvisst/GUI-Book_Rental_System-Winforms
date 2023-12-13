@@ -11,7 +11,6 @@ namespace ServiceLayer
     {
         public InMemoryDatabase database = new InMemoryDatabase();
  
-       
         public List<Resenär> GetResenärer()
         {
             return database.resenärer; 
@@ -51,19 +50,23 @@ namespace ServiceLayer
         }
         public void LånaBok(Bok bok, Resenär resenär, Bokmaskin bokmaskin)
         {
-            BokLån boklån = new BokLån(bok);
+            BokLån boklån = new BokLån(bok, resenär, bokmaskin);
             resenär.lånadeBöcker.Add(boklån);
             bokmaskin.lånadeBöckerFrånMaskin.Add(boklån);
             bokmaskin.böcker.Remove(bok); 
         }
-        public void LämnaTillbakaBok(Bok bok, Resenär resenär, Bokmaskin bokmaskin, BokLån boklån)
+        public void LämnaTillbakaBok(Bok bok, Resenär resenär, Bokmaskin nuvarandeMaskin, BokLån boklån)
         {
-            BokLån boklånet = boklån; //Markerad lånadbok i lånelista
-            Bok returnBok = bok;
-            bokmaskin.böcker.Add(returnBok);
-            bokmaskin.lånadeBöckerFrånMaskin.Remove(boklån);
-            resenär.lånadeBöcker.Remove(boklånet);
-            
+            nuvarandeMaskin.böcker.Add(bok);
+            nuvarandeMaskin.lånadeBöckerFrånMaskin.Remove(boklån);
+            resenär.lånadeBöcker.Remove(boklån);
+
+            //Löser problemet som uppstår när en resenär lämnar tillbaka en bok på annan bokmaskin än den hen ursprungligen lånade från. 
+            if (nuvarandeMaskin != boklån.maskinLånadFrån)
+            {
+                boklån.maskinLånadFrån.lånadeBöckerFrånMaskin.Remove(boklån);
+            }
+
         }
         public void LäggTillBokIMaskinFrånLager(Bok bok, Bokmaskin bokmaskin) 
         {

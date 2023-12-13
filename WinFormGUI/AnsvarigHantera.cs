@@ -53,9 +53,19 @@ namespace WinFormGUI
 
         private void btnVäljMaskin_Click(object sender, EventArgs e)
         {
-            RefreshDataGridViewBöckerMaskin();
-            UpdateBokSaldo();
-            RefreshLånadeBöcker(); 
+            if (valdBokmaskin != null) 
+            {
+                RefreshDataGridViewBöckerMaskin();
+                UpdateBokSaldo();
+                UppdateraAntalLånadeBöcker();
+                RefreshLånadeBöcker();
+            }
+            else 
+            {
+                MessageBox.Show("Vänligen välj en maskin innan du fortsätter.", "Fel", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
         }
 
         private void UpdateBokSaldo()
@@ -70,13 +80,31 @@ namespace WinFormGUI
 
         private void btnLäggTillBok_Click(object sender, EventArgs e)
         {
-            servicelayer.LäggTillBokIMaskinFrånLager(valdBok, valdBokmaskin);
-            RefreshDataGridViewBöckerMaskin();
-            UpdateBokSaldo();
+            if(valdBok != null) 
+            {
+                servicelayer.LäggTillBokIMaskinFrånLager(valdBok, valdBokmaskin);
+                RefreshDataGridViewBöckerMaskin();
+                UpdateBokSaldo();
+            }
+
+            else 
+            {
+                MessageBox.Show("Vänligen välj en bok innan du fortsätter.", "Fel", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
-        private void RefreshLånadeBöcker() 
+        private void RefreshLånadeBöcker()
         {
             dataGridViewLånadeBöcker.DataSource = new BindingList<BokLån>(servicelayer.GetLånadeBöckerFrånMaskin(valdBokmaskin));
+        }
+
+        private void UppdateraAntalLånadeBöcker()
+        {
+            lbLånadeBöckerFrånMaskin.Text = $"Lånade böcker från maskin: {valdBokmaskin.lånadeBöckerFrånMaskin.Count}";
+        }
+        private void btnLoggautMaskin_Click(object sender, EventArgs e)
+        {
+            this.Close();   
         }
     }
 }

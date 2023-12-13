@@ -12,13 +12,24 @@ using System.Threading.Tasks;
             public DateTime utlåningsDatum { get; set; }
             public DateTime återlämningsDatum { get; set; }
             public int dagarKvarLån { get; set; }
+            public string resenärNamn { get; set; }
 
             public Bok bok;
 
-            public BokLån(Bok bok)
+            public Resenär resenär;
+
+            public Bokmaskin maskinLånadFrån; 
+
+            public BokLån(Bok bok, Resenär resenär, Bokmaskin maskin)
             {
                 this.bok = bok;
                 lånadBok = bok.titel;
+
+                this.resenär = resenär;
+                resenärNamn = $"{resenär.förnamn} {resenär.efternamn}";
+
+                this.maskinLånadFrån = maskin;
+
                 utlåningsDatum = DateTime.Now;
                 återlämningsDatum = utlåningsDatum.AddMonths(1);
                 dagarKvarLån = (återlämningsDatum - utlåningsDatum).Days;
